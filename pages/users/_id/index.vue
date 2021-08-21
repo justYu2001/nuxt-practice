@@ -1,17 +1,24 @@
 <template>
-    <h1>ID:{{ id }}</h1>
+    <div>
+        <p>ID:{{ user.id }}</p>
+        <p>name: {{ user.name }}</p>
+        <p>email: {{ user.email }}</p>
+    </div>
 </template>
 
 <script>
-import { useRoute } from '@nuxtjs/composition-api';
 
 export default {
-    setup() {
-        const route = useRoute().value;
-
-        return {
-            id: route.params.id,
+    async asyncData({ params, error }) {
+        try {
+            const id = params.id;
+            const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+            const res = await fetch(url);
+            const userInfo = await res.json();
+            return { user: userInfo };
+        } catch (e) {
+            error(e);
         }
-    }
+    },
 }
 </script>
