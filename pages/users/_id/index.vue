@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 export default {
     async asyncData({ params, error }) {
         try {
@@ -19,6 +18,9 @@ export default {
         } catch (e) {
             error(e);
         }
+    },
+    validate({ params }){
+        return /^\d+$/.test(params.id);
     },
 }
 </script>
