@@ -5,3 +5,19 @@
         <nuxt-link to="/about">Go to About</nuxt-link>
     </div>
 </template>
+
+<script>
+import { useMeta, defineComponent } from '@nuxtjs/composition-api';
+
+export default defineComponent({
+    head: {},
+    setup() {
+        useMeta({ 
+            title: "About",
+            meta: [
+                { hid: 'description', name: 'description', content: 'about page' },
+            ]
+        });
+    }
+})
+</script>
