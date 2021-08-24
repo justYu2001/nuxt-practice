@@ -41,5 +41,8 @@ export default {
         const res = await fetch(url);
         this.mountains = await res.json();
     },
+    middleware(){
+        console.log("Here is mountains page!");
+    },
 }
 </script>

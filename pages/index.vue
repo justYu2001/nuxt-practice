@@ -18,6 +18,7 @@ export default {
             isShow: false,
         }
     },
+    middleware: "greet",
 }
 </script>
 

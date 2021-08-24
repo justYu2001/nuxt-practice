@@ -48,6 +48,7 @@ export default {
   
   router: {
     linkPrefetchedClass: "nuxt-link-prefetched",
+    middleware: ["enter-log"],
   },
 
   styleResources: {
